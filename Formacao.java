@@ -1,4 +1,4 @@
-public enum Formacao{
+public enum Formacao {
     ESPECIALIZACAO,
     MESTRADO,
     DOUTORADO;

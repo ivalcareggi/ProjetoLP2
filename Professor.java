@@ -1,6 +1,10 @@
+
+
 import java.time.LocalDate;
 import java.util.List;
-public class Professor extends Pessoa implements Funcionario {
+
+public class Professor extends Pessoa implements Funcionario{
+
     private Nivel nivelProfessor;
     private Formacao formacaoProfessor;
     private List<String> disciplinas;
@@ -58,8 +62,8 @@ public class Professor extends Pessoa implements Funcionario {
         this.dataIngresso = dataIngresso;
     }
     public Professor(String nome, String cpf, LocalDate dataNascimento, Genero genero, Endereco endereco,
-            Nivel nivelProfessor, Formacao formacaoProfessor, List<String> disciplinas, Long matricula, Double salario,
-            String departamento, Integer cargaHoraria, LocalDate dataIngresso) {
+                     Nivel nivelProfessor, Formacao formacaoProfessor, List<String> disciplinas, Long matricula, Double salario,
+                     String departamento, Integer cargaHoraria, LocalDate dataIngresso) {
         super(nome, cpf, dataNascimento, genero, endereco);
         this.nivelProfessor = nivelProfessor;
         this.formacaoProfessor = formacaoProfessor;
@@ -70,18 +74,18 @@ public class Professor extends Pessoa implements Funcionario {
         this.cargaHoraria = cargaHoraria;
         this.dataIngresso = dataIngresso;
     }
-@Override
+    @Override
     public Double calculaSalario(){
         //salario base do professor é 4000. Deve ser levado o nivel e formaçao em conta. 5% de aumento a cada nivel, 25% para especializaçao, 50% para mestrado e 75% para doutorado 
         final double salario_base = 4000;
         int nivelAumento = nivelProfessor.ordinal();
         double aumentoNivel = nivelAumento * 0.05;
         double aumentoformacao;
-       
+
         switch (formacaoProfessor) {
             case ESPECIALIZACAO:
                 aumentoformacao = 0.25;
-                
+
                 break;
             case MESTRADO:
                 aumentoformacao = 0.5;
@@ -90,16 +94,16 @@ public class Professor extends Pessoa implements Funcionario {
             case DOUTORADO:
                 aumentoformacao = 0.75;
                 break;
-        
+
             default:
                 aumentoformacao = 0.0; // sem aumento 
                 break;
         }
-        double salario = salario_base + (salario_base * aumentoNivel) + (salario_base * aumentoformacao); 
+        double salario = salario_base + (salario_base * aumentoNivel) + (salario_base * aumentoformacao);
 
         return salario;
-        
+
     }
-    
+
 }
 // ver o uso do SUPER e dos metodos @OVERRIDE

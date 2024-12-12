@@ -65,8 +65,8 @@ public class TecnicoAdm extends Pessoa implements Funcionario{
         this.dataIngresso = dataIngresso;
     }
     public TecnicoAdm(String nome, String cpf, LocalDate dataNascimento, Genero genero, Endereco endereco,
-            Nivel niveltecnico, Formacao formacaoTecnico, Boolean insalubridade, Boolean funcaoGratificada, Long matricula, Double salario,
-            String departamento, Integer cargaHoraria, LocalDate dataIngresso) {
+                      Nivel niveltecnico, Formacao formacaoTecnico, Boolean insalubridade, Boolean funcaoGratificada, Long matricula, Double salario,
+                      String departamento, Integer cargaHoraria, LocalDate dataIngresso) {
         super(nome, cpf, dataNascimento, genero, endereco);
         this.niveltecnico = niveltecnico;
         this.formacaoTecnico = formacaoTecnico;
@@ -83,11 +83,11 @@ public class TecnicoAdm extends Pessoa implements Funcionario{
         // (acrescente 3% a cada nível e 25% para especialização, 50% para mestrado e 75% para doutorado)
         // acrescente 25% caso tenha insalubridade e 50% caso tenha função gratificada.
         final double salario_base = 2500;
-        int nivelAumento = niveltecnico.ordinal(); 
-        double aumentoNivel = nivelAumento * 0.03; 
+        int nivelAumento = niveltecnico.ordinal();
+        double aumentoNivel = nivelAumento * 0.03;
         double aumentoformacao;
-    
-      
+
+
         switch (formacaoTecnico) {
             case ESPECIALIZACAO:
                 aumentoformacao = 0.25;
@@ -102,25 +102,26 @@ public class TecnicoAdm extends Pessoa implements Funcionario{
                 aumentoformacao = 0.0;
                 break;
         }
-    
-     
+
+
         double aumento = 0.0;
-    
+
         if (insalubridade) {
-            aumento += salario_base * 0.25; 
+            aumento += salario_base * 0.25;
         }
-    
+
         if (funcaoGratificada) {
-            aumento += salario_base * 0.5; 
+            aumento += salario_base * 0.5;
         }
-    
-     
-        double salario = salario_base 
-                         + (salario_base * aumentoNivel) 
-                         + (salario_base * aumentoformacao) 
-                         + aumento;
-    
+
+
+        double salario = salario_base
+                + (salario_base * aumentoNivel)
+                + (salario_base * aumentoformacao)
+                + aumento;
+
         return salario;
     }
 
 }
+

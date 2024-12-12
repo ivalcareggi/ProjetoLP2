@@ -1,11 +1,13 @@
+import java.io.Serializable;
 import java.time.LocalDate;
-public abstract class Pessoa {
+
+public class Pessoa implements Serializable{
     private String nome;
     private String cpf;
-    private LocalDate dataNascimento; 
+    private LocalDate dataNascimento;
     private Genero genero;
     private Endereco endereco;
-    
+
     public String getNome() {
         return nome;
     }
@@ -43,7 +45,4 @@ public abstract class Pessoa {
         this.genero = genero;
         this.endereco = endereco;
     }
-    
-
-    
 }
