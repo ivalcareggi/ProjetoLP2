@@ -65,7 +65,7 @@ public class TecnicoAdm extends Pessoa implements Funcionario{
         this.dataIngresso = dataIngresso;
     }
     public TecnicoAdm(String nome, String cpf, LocalDate dataNascimento, Genero genero, Endereco endereco,
-                      Nivel niveltecnico, Formacao formacaoTecnico, Boolean insalubridade, Boolean funcaoGratificada, Long matricula, Double salario,
+                      Nivel niveltecnico, Formacao formacaoTecnico, Boolean insalubridade, Boolean funcaoGratificada, Long matricula,
                       String departamento, Integer cargaHoraria, LocalDate dataIngresso) {
         super(nome, cpf, dataNascimento, genero, endereco);
         this.niveltecnico = niveltecnico;
@@ -73,11 +73,12 @@ public class TecnicoAdm extends Pessoa implements Funcionario{
         this.insalubridade = insalubridade;
         this.funcaoGratificada = funcaoGratificada;
         this.matricula = matricula;
-        this.salario = salario;
+        this.salario = calculaSalario();
         this.departamento = departamento;
         this.cargaHoraria = cargaHoraria;
         this.dataIngresso = dataIngresso;
     }
+    @Override
     public Double calculaSalario() {
         // O cálculo do salário do Técnico leva em conta o nível e a formação
         // (acrescente 3% a cada nível e 25% para especialização, 50% para mestrado e 75% para doutorado)
@@ -121,6 +122,26 @@ public class TecnicoAdm extends Pessoa implements Funcionario{
                 + aumento;
 
         return salario;
+    }
+
+    @Override
+    public String toString() {
+        return "TecnicoADM{" +
+                "nivel=" + niveltecnico +
+                ", formacao=" + formacaoTecnico +
+                ", insalubridade=" + insalubridade +
+                ", funcaoGratificada=" + funcaoGratificada +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", genero=" + genero +
+                ", endereco=" + endereco +
+                ", matricula=" + matricula +
+                ", salario=" + salario +
+                ", departamento='" + departamento + '\'' +
+                ", cargaHoraria=" + cargaHoraria +
+                ", dataIngresso=" + dataIngresso +
+                '}';
     }
 
 }

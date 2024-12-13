@@ -23,6 +23,7 @@ public class BancoDAO implements Serializable {
         funcionario = new ArrayList<>();
     }
 
+
     public void salvarDados() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("funcionarios.bin"))) {
             oos.writeObject(instance);

@@ -2,11 +2,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Pessoa implements Serializable{
-    private String nome;
-    private String cpf;
-    private LocalDate dataNascimento;
-    private Genero genero;
-    private Endereco endereco;
+    protected String nome;
+    protected String cpf;
+    protected LocalDate dataNascimento;
+    protected Genero genero;
+    protected Endereco endereco;
 
     public String getNome() {
         return nome;
@@ -44,5 +44,16 @@ public class Pessoa implements Serializable{
         this.dataNascimento = dataNascimento;
         this.genero = genero;
         this.endereco = endereco;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", genero=" + genero +
+                ", endereco=" + endereco +
+                '}';
     }
 }
